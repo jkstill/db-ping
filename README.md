@@ -58,6 +58,6 @@ Local Seconds Begin:    1610730917.458928
 ==============================
 ```
 
-In the previous exmaple, the latency after the connection is established is 22-40 milliseconds.
+In the previous example, the latency after the connection is established is 22-40 milliseconds.
 
 
