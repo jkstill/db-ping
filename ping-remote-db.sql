@@ -5,7 +5,8 @@ set feedback off
 
 var dblink_name varchar2(30);
 --exec :dblink_name := 'rds_link'
-exec :dblink_name := 'oci_link'
+--exec :dblink_name := 'oci_link'
+exec :dblink_name := 'droplet_link'
 
 var iterations number
 exec :iterations := 5

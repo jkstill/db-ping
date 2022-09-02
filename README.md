@@ -11,15 +11,23 @@ A database link from the local database to the remote database is used to measur
 
 ### rds-dblink.sql
 
-This script can be modified to connect to the remote database.
+This script was used to create a database link to an AWS RDS database.
+
+### atp-dblink.sql
+
+This script was used to create a database link to an Oracle Autonomous Transaction database.
 
 ### ping-remote-db.sql
 
-The script `ping-remote-db.sql` will run a query against the remote database, and measure the round trip latency.
+Create a database link to be used for the ping test.  
+
+You can modified one of the two scripts provided for that purpose, or create your own.
+
+The script `ping-remote-db.sql` will run a query against the remote database via the database link, and measure the round trip latency.
 
 Adjust the values for `:dblink_name` and `:iterations` as needed.
 
-Connect to the local database.
+Connect to the local database where the database link was created.
 
 Now run `ping-remote-db.sql`.
 

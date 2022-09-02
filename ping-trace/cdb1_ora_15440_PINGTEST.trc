@@ -1,0 +1,356 @@
+Trace file /u01/app/oracle/diag/rdbms/cdb/cdb1/trace/cdb1_ora_15440_PINGTEST.trc
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.12.0.0.0
+Build label:    RDBMS_19.12.0.0.0DBRU_LINUX.X64_210715
+ORACLE_HOME:    /u01/app/oracle/product/19.0.0/dbhome_1
+System name:	Linux
+Node name:	ora192rac01.jks.com
+Release:	4.14.35-2047.510.5.3.el7uek.x86_64
+Version:	#2 SMP Wed Jan 12 12:07:06 PST 2022
+Machine:	x86_64
+Instance name: cdb1
+Redo thread mounted by this instance: 1
+Oracle process number: 87
+Unix process pid: 15440, image: oracle@ora192rac01.jks.com
+
+
+*** 2022-09-01T17:39:34.556684-07:00 (PDB1(3))
+*** SESSION ID:(1183.18399) 2022-09-01T17:39:34.556701-07:00
+*** CLIENT ID:() 2022-09-01T17:39:34.556703-07:00
+*** SERVICE NAME:(pdb1) 2022-09-01T17:39:34.556706-07:00
+*** MODULE NAME:(SQL*Plus) 2022-09-01T17:39:34.556708-07:00
+*** ACTION NAME:() 2022-09-01T17:39:34.556710-07:00
+*** CLIENT DRIVER:(SQL*PLUS) 2022-09-01T17:39:34.556712-07:00
+*** CONTAINER ID:(3) 2022-09-01T17:39:34.556715-07:00
+ 
+WAIT #140174156064264: nam='SQL*Net message to client' ela= 4 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578274564137
+WAIT #140174156064264: nam='SQL*Net message from client' ela= 292 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578274564719
+=====================
+PARSING IN CURSOR #140174154976552 len=52 dep=0 uid=108 oct=47 lid=108 tim=9578274564774 hv=1029988163 ad='7814bc38' sqlid='9babjv8yq8ru3'
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+END OF STMT
+PARSE #140174154976552:c=14,e=14,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578274564773
+BINDS #140174154976552:
+
+ Bind#0
+  oacdty=123 mxl=656(656) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1400000 frm=00 csi=00 siz=680 off=0
+toid ptr value=E5A24040 length=16
+86B64B66F23D012EE053F706E80A06
+  kxsbbbfp=7f7cd6a7a480  bln=656  avl=00  flg=15
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=01 fl2=1000000 frm=00 csi=00 siz=0 off=656
+  kxsbbbfp=7f7cd6a7a710  bln=22  avl=22  flg=01
+  value=###
+  An invalid number has been seen.Memory contents are :
+Dumping '' addr=0x7f7cd6a7a710 size=22 bytes
+Dump of memory from 0x7f7cd6a7a710 to 0x7f7cd6a7a728
+7F7CD6A7A710 000010C1 00000000 00000000 00000000  [................]
+7F7CD6A7A720 00000000 00000000                    [........]        
+WAIT #140174154976552: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578274564990
+EXEC #140174154976552:c=206,e=205,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578274565013
+
+*** 2022-09-01T17:39:44.632123-07:00 (PDB1(3))
+CLOSE #140174156064264:c=0,e=8,dep=0,type=1,tim=9578284640096
+CLOSE #140174154976552:c=31,e=31,dep=0,type=3,tim=9578284640212
+=====================
+PARSING IN CURSOR #140174153142376 len=36 dep=0 uid=108 oct=47 lid=108 tim=9578284640404 hv=4128301241 ad='823fcb40' sqlid='5t10uu7v11s5t'
+BEGIN DBMS_OUTPUT.ENABLE(NULL); END;
+END OF STMT
+PARSE #140174153142376:c=19,e=19,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578284640403
+EXEC #140174153142376:c=121,e=121,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578284640816
+WAIT #140174153142376: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284640892
+WAIT #140174153142376: nam='SQL*Net message from client' ela= 359 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284641319
+CLOSE #140174153142376:c=0,e=4,dep=0,type=3,tim=9578284641404
+WAIT #0: nam='SQL*Net message to client' ela= 1 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284641530
+WAIT #0: nam='SQL*Net message from client' ela= 294 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284642080
+=====================
+PARSING IN CURSOR #140174156934344 len=44 dep=0 uid=108 oct=47 lid=108 tim=9578284642195 hv=1072729690 ad='7120fdf0' sqlid='fx0f60wzz13ku'
+BEGIN :dblink_name := 'droplet_link'; END;
+
+END OF STMT
+PARSE #140174156934344:c=0,e=29,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578284642195
+BINDS #140174156934344:
+
+ Bind#0
+  oacdty=01 mxl=128(90) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1400000 frm=01 csi=873 siz=128 off=0
+  kxsbbbfp=7f7cd6a7a6a8  bln=128  avl=00  flg=05
+WAIT #140174156934344: nam='SQL*Net message to client' ela= 1 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284642731
+EXEC #140174156934344:c=353,e=352,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578284642805
+WAIT #140174156934344: nam='SQL*Net message from client' ela= 294 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284643176
+PARSE #140174154976552:c=8,e=8,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578284643262
+BINDS #140174154976552:
+
+ Bind#0
+  oacdty=123 mxl=656(656) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1400000 frm=00 csi=00 siz=680 off=0
+toid ptr value=E5A24040 length=16
+86B64B66F23D012EE053F706E80A06
+  kxsbbbfp=7f7cd6a78f90  bln=656  avl=00  flg=15
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=01 fl2=1000000 frm=00 csi=00 siz=0 off=656
+  kxsbbbfp=7f7cd6a79220  bln=22  avl=22  flg=01
+  value=###
+  An invalid number has been seen.Memory contents are :
+Dumping '' addr=0x7f7cd6a79220 size=22 bytes
+Dump of memory from 0x7f7cd6a79220 to 0x7f7cd6a79238
+7F7CD6A79220 000010C1 00000000 00000000 00000000  [................]
+7F7CD6A79230 00000000 00000000                    [........]        
+WAIT #140174154976552: nam='SQL*Net message to client' ela= 1 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284644192
+EXEC #140174154976552:c=9,e=933,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578284644249
+WAIT #140174154976552: nam='SQL*Net message from client' ela= 297 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284644627
+CLOSE #140174156934344:c=0,e=5,dep=0,type=0,tim=9578284644718
+CLOSE #140174154976552:c=0,e=3,dep=0,type=3,tim=9578284644783
+=====================
+PARSING IN CURSOR #140174155518536 len=30 dep=0 uid=108 oct=47 lid=108 tim=9578284644912 hv=4024379002 ad='c0ddee50' sqlid='cv4rfqzrxy9mu'
+BEGIN :iterations := 5; END;
+
+END OF STMT
+PARSE #140174155518536:c=0,e=8,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578284644912
+BINDS #140174155518536:
+
+ Bind#0
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1400000 frm=00 csi=00 siz=24 off=0
+  kxsbbbfp=7f7cd6a7a710  bln=22  avl=00  flg=05
+WAIT #140174155518536: nam='SQL*Net message to client' ela= 16 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284645434
+EXEC #140174155518536:c=77,e=293,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578284645480
+WAIT #140174155518536: nam='SQL*Net message from client' ela= 248 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284645781
+PARSE #140174154976552:c=7,e=7,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578284645861
+BINDS #140174154976552:
+
+ Bind#0
+  oacdty=123 mxl=656(656) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1400000 frm=00 csi=00 siz=680 off=0
+toid ptr value=E5A24040 length=16
+86B64B66F23D012EE053F706E80A06
+  kxsbbbfp=7f7cd6a7a068  bln=656  avl=00  flg=15
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=01 fl2=1000000 frm=00 csi=00 siz=0 off=656
+  kxsbbbfp=7f7cd6a7a2f8  bln=22  avl=22  flg=01
+  value=###
+  An invalid number has been seen.Memory contents are :
+Dumping '' addr=0x7f7cd6a7a2f8 size=22 bytes
+Dump of memory from 0x7f7cd6a7a2f8 to 0x7f7cd6a7a310
+7F7CD6A7A2F0                   000010C1 00000000          [........]
+7F7CD6A7A300 00000000 00000000 00000000 00000000  [................]
+WAIT #140174154976552: nam='SQL*Net message to client' ela= 1 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284646772
+EXEC #140174154976552:c=8,e=924,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578284646875
+WAIT #140174154976552: nam='SQL*Net message from client' ela= 569 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578284647570
+CLOSE #140174155518536:c=0,e=5,dep=0,type=3,tim=9578284647703
+CLOSE #140174154976552:c=0,e=2,dep=0,type=3,tim=9578284647752
+=====================
+PARSING IN CURSOR #140174155089304 len=2614 dep=0 uid=108 oct=47 lid=108 tim=9578284647839 hv=1101563146 ad='d6e8d768' sqlid='461rnjt0uj18a'
+declare
+	local_seconds_begin number;
+	local_seconds_end number;
+	local_timestamp timestamp;
+	remote_seconds number;
+	from_client_latency number;
+	to_client_latency number;
+	round_trip_latency number;
+	local_time_seconds_begin number;
+	local_time_seconds_end number;
+	working_timestamp timestamp;
+	v_sql varchar2(200);
+
+
+	function get_epoch_microseconds(timestamp_in timestamp)  return number
+	is
+   	v_date date;
+   	v_epoch_secs number default 0;
+   	v_day_secs number default 0;
+   	v_hour_secs number default 0;
+   	v_10k_secs number(8,6) default 0;
+   	v_total_secs number(22,6) default 0;
+		v_working_timestamp timestamp;
+	begin
+		v_working_timestamp := timestamp_in;
+
+   	v_date := timestamp_in -0; -- implicit conversion to date data type
+
+   	v_epoch_secs   := 86400*(trunc(v_date) - to_date('1970','yyyy'));
+   	v_day_secs     := 86400*(trunc(v_date,'hh24') - trunc(v_date));
+   	v_hour_secs    := 86400*(trunc(v_date,'mi') - trunc(v_date,'hh24'));
+
+   	v_10k_secs := to_number(to_char(systimestamp, 'ss.ff6')) ;
+
+   	v_total_secs := v_epoch_secs + v_day_secs + v_hour_secs + v_10k_secs;
+
+   	return v_total_secs;
+
+end;
+
+
+begin
+	v_sql := 'select systimestamp at local from dual@' || :dblink_name;
+	for i in 1 .. :iterations
+	loop
+		--local_seconds_begin := localtimestamp at local;
+		--working_timestamp := cast(localtimestamp at local as timestamp);
+		local_seconds_begin := get_epoch_microseconds(localtimestamp at local );
+		execute immediate v_sql into local_timestamp;
+		local_seconds_end := get_epoch_microseconds(localtimestamp at local );
+
+		remote_seconds := get_epoch_microseconds(local_timestamp at local);
+		round_trip_latency := local_seconds_end - local_seconds_begin;
+		from_client_latency := remote_seconds - local_seconds_begin;
+
+/*
+	The to/from client times are not being displayed, as this will not work properly
+	unless the clocks of the servers are in sync.
+*/
+
+		dbms_output.put_line('Local Seconds Begin: ' || to_char(local_seconds_begin, '999999999990.099999') );
+		dbms_output.put_line('     Remote Seconds: ' || to_char(remote_seconds, '999999999990.099999') );
+		dbms_output.put_line('  Local Seconds End: ' || to_char(local_seconds_begin, '999999999990.099999') );
+		--dbms_output.put_line('        From Client: ' || to_char(from_client_latency, '999999999990.099999') );
+		--dbms_output.put_line('          To Client: ' || to_char(to_client_latency, '999999999990.099999') );
+		dbms_output.put_line('         Round Trip: ' || to_char(round_trip_latency, '999999999990.099999') );
+		dbms_output.put_line('==============================');
+		dbms_lock.sleep(2);
+	end loop;
+
+end;
+END OF STMT
+PARSE #140174155089304:c=12,e=12,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578284647839
+BINDS #140174155089304:
+
+ Bind#0
+  oacdty=01 mxl=128(90) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=01 csi=873 siz=152 off=0
+  kxsbbbfp=7f7cd6a7a690  bln=128  avl=12  flg=05
+  value="droplet_link"
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=03 fl2=1000000 frm=00 csi=00 siz=0 off=128
+  kxsbbbfp=7f7cd6a7a710  bln=22  avl=02  flg=01
+  value=5
+WAIT #140174153974880: nam='library cache lock' ela= 576 handle address=3065949376 lock address=3547861464 100*mode+namespace=4521986 obj#=774 tim=9578284649387
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 31 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284649600
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 20389 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284670043
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284670305
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 25950 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284696335
+=====================
+PARSING IN CURSOR #140174153974880 len=51 dep=1 uid=108 oct=3 lid=108 tim=9578284696612 hv=408246130 ad='781a32b0' sqlid='b3w11b0c5apvk'
+select systimestamp at local from dual@droplet_link
+END OF STMT
+PARSE #140174153974880:c=133,e=47927,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=0,tim=9578284696611
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284696910
+
+*** 2022-09-01T17:39:44.716883-07:00 (PDB1(3))
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 27548 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284724529
+EXEC #140174153974880:c=133,e=27940,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=0,tim=9578284724789
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 3 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284724907
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 26946 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578284751903
+FETCH #140174153974880:c=235,e=27282,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=0,tim=9578284752150
+CLOSE #140174153974880:c=8,e=8,dep=1,type=3,tim=9578284752386
+
+*** 2022-09-01T17:39:46.807681-07:00 (PDB1(3))
+WAIT #140174155089304: nam='PL/SQL lock timer' ela= 2062658 duration=0 p2=0 p3=0 obj#=774 tim=9578286815323
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578286815827
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 22942 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578286838850
+EXEC #140174153974880:c=314,e=23514,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=0,tim=9578286839128
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578286839308
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 27039 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578286866425
+FETCH #140174153974880:c=104,e=27504,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=0,tim=9578286866785
+CLOSE #140174153974880:c=0,e=5,dep=1,type=3,tim=9578286867048
+
+*** 2022-09-01T17:39:48.919877-07:00 (PDB1(3))
+WAIT #140174155089304: nam='PL/SQL lock timer' ela= 2060310 duration=0 p2=0 p3=0 obj#=774 tim=9578288927519
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 3 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578288927975
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 27333 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578288955503
+EXEC #140174153974880:c=348,e=27813,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=0,tim=9578288955635
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578288955733
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 26398 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578288982178
+FETCH #140174153974880:c=0,e=26762,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=0,tim=9578288982455
+CLOSE #140174153974880:c=0,e=5,dep=1,type=3,tim=9578288982583
+
+*** 2022-09-01T17:39:51.032586-07:00 (PDB1(3))
+WAIT #140174155089304: nam='PL/SQL lock timer' ela= 2057524 duration=0 p2=0 p3=0 obj#=774 tim=9578291040228
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 3 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578291040661
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 23697 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578291064455
+EXEC #140174153974880:c=252,e=24122,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=0,tim=9578291064628
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578291064758
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 27911 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578291092729
+FETCH #140174153974880:c=0,e=28452,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=0,tim=9578291093170
+CLOSE #140174153974880:c=4,e=4,dep=1,type=3,tim=9578291093305
+
+*** 2022-09-01T17:39:53.143827-07:00 (PDB1(3))
+WAIT #140174155089304: nam='PL/SQL lock timer' ela= 2058039 duration=0 p2=0 p3=0 obj#=774 tim=9578293151470
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578293151989
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 21195 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578293173328
+EXEC #140174153974880:c=290,e=21652,p=0,cr=0,cu=0,mis=0,r=0,dep=1,og=1,plh=0,tim=9578293173495
+WAIT #140174153974880: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578293173630
+WAIT #140174153974880: nam='SQL*Net message from dblink' ela= 26681 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578293200380
+FETCH #140174153974880:c=175,e=26956,p=0,cr=0,cu=0,mis=0,r=1,dep=1,og=1,plh=0,tim=9578293200544
+CLOSE #140174153974880:c=5,e=5,dep=1,type=3,tim=9578293200663
+
+*** 2022-09-01T17:39:55.255682-07:00 (PDB1(3))
+WAIT #140174155089304: nam='PL/SQL lock timer' ela= 2062529 duration=0 p2=0 p3=0 obj#=774 tim=9578295263327
+WAIT #140174155089304: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578295263547
+EXEC #140174155089304:c=5376,e=10615456,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578295263624
+WAIT #140174155089304: nam='SQL*Net message from client' ela= 426 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578295264186
+PARSE #140174154976552:c=21,e=21,p=0,cr=0,cu=0,mis=0,r=0,dep=0,og=1,plh=0,tim=9578295264312
+BINDS #140174154976552:
+
+ Bind#0
+  oacdty=123 mxl=656(656) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1400000 frm=00 csi=00 siz=680 off=0
+toid ptr value=E5A24040 length=16
+86B64B66F23D012EE053F706E80A06
+  kxsbbbfp=7f7cd6a7a480  bln=656  avl=00  flg=15
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=01 fl2=1000000 frm=00 csi=00 siz=0 off=656
+  kxsbbbfp=7f7cd6a7a710  bln=22  avl=22  flg=01
+  value=###
+  An invalid number has been seen.Memory contents are :
+Dumping '' addr=0x7f7cd6a7a710 size=22 bytes
+Dump of memory from 0x7f7cd6a7a710 to 0x7f7cd6a7a728
+7F7CD6A7A710 000010C1 00000000 00000000 00000000  [................]
+7F7CD6A7A720 00000000 00000000                    [........]        
+WAIT #140174154976552: nam='SQL*Net message to client' ela= 1 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578295265529
+EXEC #140174154976552:c=0,e=1059,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578295265614
+WAIT #140174154976552: nam='SQL*Net message from client' ela= 489 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578295266233
+BINDS #140174154976552:
+
+ Bind#0
+  oacdty=123 mxl=656(656) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=00 fl2=1400000 frm=00 csi=00 siz=680 off=0
+toid ptr value=E5A24040 length=16
+86B64B66F23D012EE053F706E80A06
+  kxsbbbfp=7f7cd6a7a480  bln=656  avl=00  flg=15
+ Bind#1
+  oacdty=02 mxl=22(22) mxlc=00 mal=00 scl=00 pre=00
+  oacflg=01 fl2=1000000 frm=00 csi=00 siz=0 off=656
+  kxsbbbfp=7f7cd6a7a710  bln=22  avl=22  flg=01
+  value=###
+  An invalid number has been seen.Memory contents are :
+Dumping '' addr=0x7f7cd6a7a710 size=22 bytes
+Dump of memory from 0x7f7cd6a7a710 to 0x7f7cd6a7a728
+7F7CD6A7A710 000010C1 00000000 00000000 00000000  [................]
+7F7CD6A7A720 00000000 00000000                    [........]        
+WAIT #140174154976552: nam='SQL*Net message to client' ela= 2 driver id=1413697536 #bytes=1 p3=0 obj#=774 tim=9578295267166
+EXEC #140174154976552:c=927,e=927,p=0,cr=0,cu=0,mis=0,r=1,dep=0,og=1,plh=0,tim=9578295267252
+
+*** 2022-09-01T17:39:56.600325-07:00 (PDB1(3))
+XCTEND rlbk=0, rd_only=1, tim=9578296608404
+WAIT #0: nam='SQL*Net message to dblink' ela= 2 driver id=1952673792 #bytes=1 p3=0 obj#=-1 tim=9578296608582
+WAIT #0: nam='SQL*Net message from dblink' ela= 24856 driver id=1952673792 #bytes=1 p3=0 obj#=-1 tim=9578296633502
+WAIT #0: nam='rdbms ipc reply' ela= 68 from_process=74 p2=0 p3=0 obj#=-1 tim=9578296633824
+CLOSE #140174156095640:c=4,e=4,dep=0,type=0,tim=9578296634342
+CLOSE #140174155367784:c=0,e=0,dep=0,type=0,tim=9578296634466
+CLOSE #140174152549640:c=1,e=1,dep=0,type=0,tim=9578296634572
+CLOSE #140174155172304:c=1,e=1,dep=0,type=0,tim=9578296634666
+CLOSE #140174154976552:c=9,e=9,dep=0,type=0,tim=9578296634762
+CLOSE #140174155089304:c=3,e=3,dep=0,type=0,tim=9578296634850
+CLOSE #140174154451880:c=4,e=4,dep=0,type=0,tim=9578296634928
+CLOSE #140174156068952:c=3,e=3,dep=0,type=0,tim=9578296635036
+CLOSE #140174156136952:c=2,e=2,dep=0,type=0,tim=9578296635103
+WAIT #0: nam='SQL*Net message to dblink' ela= 34 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578296635393
+WAIT #0: nam='SQL*Net message from dblink' ela= 26992 driver id=1952673792 #bytes=1 p3=0 obj#=774 tim=9578296662449
