@@ -24,10 +24,10 @@ This database link relies on an ssh tunnel.  The following entrie is used in `~/
 
 ```text
 # equivalent to
-# ssh -N -L 1521:137.184.84.204:6790 jkstill@137.184.84.204
+# ssh -N -L 1521:137.nnn.nn.nnn:6790 jkstill@137.nnn.nn.nnn
 Host pingtest-tunnel
    User myusername
-   Hostname 137.1nn.nn.nnn
+   Hostname 137.nnn.nn.nnn
    Port 22
    IdentityFile /home/myusername/.ssh/digital-ocean-centos7
    IdentitiesOnly yes
@@ -99,15 +99,15 @@ In the previous example, the latency varies from 42-58 milliseconds.
 How does this compare to the `ping` utility?
 
 ```text
-$  ping -i 2 -c 5 137.1nn.nn.nn4
-PING 137.184.84.204 (137.184.84.204) 56(84) bytes of data.
-64 bytes from 137.184.84.204: icmp_seq=1 ttl=48 time=25.1 ms
-64 bytes from 137.184.84.204: icmp_seq=2 ttl=48 time=22.8 ms
-64 bytes from 137.184.84.204: icmp_seq=3 ttl=48 time=28.4 ms
-64 bytes from 137.184.84.204: icmp_seq=4 ttl=48 time=29.3 ms
-64 bytes from 137.184.84.204: icmp_seq=5 ttl=48 time=23.5 ms
+$  ping -i 2 -c 5 137.nnn.nn.nn4
+PING 137.nnn.nn.nnn (137.nnn.nn.nnn) 56(84) bytes of data.
+64 bytes from 137.nnn.nn.nnn: icmp_seq=1 ttl=48 time=25.1 ms
+64 bytes from 137.nnn.nn.nnn: icmp_seq=2 ttl=48 time=22.8 ms
+64 bytes from 137.nnn.nn.nnn: icmp_seq=3 ttl=48 time=28.4 ms
+64 bytes from 137.nnn.nn.nnn: icmp_seq=4 ttl=48 time=29.3 ms
+64 bytes from 137.nnn.nn.nnn: icmp_seq=5 ttl=48 time=23.5 ms
 
---- 137.1nn.nn.nn4 ping statistics ---
+--- 137.nnn.nn.nn4 ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 8008ms
 rtt min/avg/max/mdev = 22.837/25.871/29.346/2.611 ms
 ```
