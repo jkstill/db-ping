@@ -1,4 +1,7 @@
 
+-- ping-remote-db-multirow.sql
+-- Jared Still 2022
+
 set serveroutput on size unlimited
 
 set array 1
@@ -7,11 +10,11 @@ set feedback off
 
 var dblink_name varchar2(30);
 --exec :dblink_name := 'rds_link'
---exec :dblink_name := 'oci_link'
-exec :dblink_name := 'droplet_link'
+exec :dblink_name := 'oci_link'
+--exec :dblink_name := 'droplet_link'
 
 var iterations number
-exec :iterations := 100
+exec :iterations := 10
 
 
 declare
@@ -21,9 +24,12 @@ declare
 	local_seconds_begin number;
 	local_seconds_end number;
 	local_timestamp timestamp;
+
+	connect_seconds_begin number;
+	connect_seconds_end number;
+
 	remote_seconds number;
 	from_client_latency number;
-	to_client_latency number;
 	round_trip_latency number;
 	local_time_seconds_begin number;
 	local_time_seconds_end number;
@@ -66,42 +72,45 @@ end;
 begin
 	v_sql := 'select systimestamp at local as ping_timestamp, rpad(''X'',1500-35-28,''X'') as filler from dual@' || :dblink_name || ' connect by level <= ' || :iterations;
 
+	connect_seconds_begin := get_epoch_microseconds(localtimestamp at local );
 	open cref_cur for v_sql;
+	connect_seconds_end := get_epoch_microseconds(localtimestamp at local );
 
 	test_seconds_begin := get_epoch_microseconds(localtimestamp at local );
 
+	dbms_output.put_line('	');
+
 	loop
-		--local_seconds_begin := localtimestamp at local;
-		--working_timestamp := cast(localtimestamp at local as timestamp);
-		exit when cref_cur%notfound;
-		fetch cref_cur into t_timestamp, v_filler;
 
 		local_seconds_begin := get_epoch_microseconds(localtimestamp at local );
+
+		fetch cref_cur into t_timestamp, v_filler;
+		exit when cref_cur%notfound;
+
 		local_seconds_end := get_epoch_microseconds(localtimestamp at local );
 
 		remote_seconds := get_epoch_microseconds(local_timestamp at local);
 		round_trip_latency := local_seconds_end - local_seconds_begin;
-		from_client_latency := remote_seconds - local_seconds_begin;
 
 /*
-	The to/from client times are not being displayed, as this will not work properly
+	The to/from client times are not being calculated, as this will not work properly
 	unless the clocks of the servers are in sync.
 */
 
 		dbms_output.put_line('Local Seconds Begin: ' || to_char(local_seconds_begin, '999999999990.099999') );
-		dbms_output.put_line('     Remote Seconds: ' || to_char(remote_seconds, '999999999990.099999') );
-		dbms_output.put_line('  Local Seconds End: ' || to_char(local_seconds_begin, '999999999990.099999') );
-		--dbms_output.put_line('        From Client: ' || to_char(from_client_latency, '999999999990.099999') );
-		--dbms_output.put_line('          To Client: ' || to_char(to_client_latency, '999999999990.099999') );
+		dbms_output.put_line('  Local Seconds End: ' || to_char(local_seconds_end, '999999999990.099999') );
 		dbms_output.put_line('         Round Trip: ' || to_char(round_trip_latency, '999999999990.099999') );
 		dbms_output.put_line('==============================');
-		--dbms_lock.sleep(2);
 	end loop;
 
 	test_seconds_end := get_epoch_microseconds(localtimestamp at local );
 	test_avg_packet_seconds := (test_seconds_end - test_seconds_begin) / :iterations;
 
+	dbms_output.put_line('       Connect Time: ' || to_char(connect_seconds_end - connect_seconds_begin, '999999999990.099999') );
 	dbms_output.put_line('     Round Trip Avg: ' || to_char(test_avg_packet_seconds, '999999999990.099999') );
+	dbms_output.put_line('         Iterations: ' || to_char(:iterations, '99999') );
+
 
 end;
 /
+

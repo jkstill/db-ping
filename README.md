@@ -66,55 +66,60 @@ The following example is from a database running in the same rack as my workstat
 
 ```text
 $  echo exit | sql -S -L jkstill/XXX@orcl/pdb1 @ping-remote-db.sql
-Local Seconds Begin:    1641480615.772064
-     Remote Seconds:    1641480616.191254
-  Local Seconds End:    1641480615.772064
-         Round Trip:             0.419177
+
+Local Seconds Begin:    1641640285.703832
+  Local Seconds End:    1641640285.799489
+         Round Trip:             0.095657
 ==============================
-Local Seconds Begin:    1641480618.231498
-     Remote Seconds:    1641480618.282833
-  Local Seconds End:    1641480618.231498
-         Round Trip:             0.051322
+Local Seconds Begin:    1641640287.864372
+  Local Seconds End:    1641640288.054133
+         Round Trip:             0.189761
 ==============================
-Local Seconds Begin:    1641480620.343469
-     Remote Seconds:    1641480620.401936
-  Local Seconds End:    1641480620.343469
-         Round Trip:             0.058456
+Local Seconds Begin:    1641640290.103683
+  Local Seconds End:    1641640290.471617
+         Round Trip:             0.367934
 ==============================
-Local Seconds Begin:    1641480622.455464
-     Remote Seconds:    1641480622.507981
-  Local Seconds End:    1641480622.455464
-         Round Trip:             0.052506
+Local Seconds Begin:    1641640292.537824
+  Local Seconds End:    1641640292.671595
+         Round Trip:             0.133771
 ==============================
-Local Seconds Begin:    1641480624.567963
-     Remote Seconds:    1641480624.624368
-  Local Seconds End:    1641480624.567963
-         Round Trip:             0.056373
+Local Seconds Begin:    1641640294.711450
+  Local Seconds End:    1641640295.176477
+         Round Trip:             0.465027
 ==============================
+         Iterations:      5
 
 ```
 
-In the previous example, the latency varies from 42-58 milliseconds.
+In the previous example, the latency varies from 95 - 465 milliseconds.
 
 How does this compare to the `ping` utility?
 
 ```text
-$  ping -i 2 -c 5 137.nnn.nn.nn4
-PING 137.nnn.nn.nnn (137.nnn.nn.nnn) 56(84) bytes of data.
-64 bytes from 137.nnn.nn.nnn: icmp_seq=1 ttl=48 time=25.1 ms
-64 bytes from 137.nnn.nn.nnn: icmp_seq=2 ttl=48 time=22.8 ms
-64 bytes from 137.nnn.nn.nnn: icmp_seq=3 ttl=48 time=28.4 ms
-64 bytes from 137.nnn.nn.nnn: icmp_seq=4 ttl=48 time=29.3 ms
-64 bytes from 137.nnn.nn.nnn: icmp_seq=5 ttl=48 time=23.5 ms
+$  ping -c 10 137.nnn.nn.nnn
+PING 137.184.84.204 (137.184.84.204) 56(84) bytes of data.
+64 bytes from 137.184.84.204: icmp_seq=1 ttl=48 time=409 ms
+64 bytes from 137.184.84.204: icmp_seq=2 ttl=48 time=192 ms
+64 bytes from 137.184.84.204: icmp_seq=3 ttl=48 time=297 ms
+64 bytes from 137.184.84.204: icmp_seq=4 ttl=48 time=76.5 ms
+64 bytes from 137.184.84.204: icmp_seq=5 ttl=48 time=353 ms
+64 bytes from 137.184.84.204: icmp_seq=6 ttl=48 time=36.5 ms
+64 bytes from 137.184.84.204: icmp_seq=7 ttl=48 time=127 ms
+64 bytes from 137.184.84.204: icmp_seq=8 ttl=48 time=356 ms
+64 bytes from 137.184.84.204: icmp_seq=9 ttl=48 time=38.5 ms
+64 bytes from 137.184.84.204: icmp_seq=10 ttl=48 time=646 ms
 
---- 137.nnn.nn.nn4 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 8008ms
-rtt min/avg/max/mdev = 22.837/25.871/29.346/2.611 ms
+--- 137.nnn.nn.nnn ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9011ms
+rtt min/avg/max/mdev = 36.570/253.478/646.856/185.977 ms
 ```
-
-The times of the database ping are approximately 2x the standard ping are times.
+The first few times I tested this, the times of the database ping are approximately 2x the standard ping times.
+Testing on other days shows less of a difference between the times.
 
 There is extra overhead for the database ping as compared to the ping utility, so it would be expected to take a more time.
+
+Just how much more time varies with internet performance, as the remote databases are accessed via the internet.
+
 
 ### ping-remote-db-multirow.sql
 
@@ -134,32 +139,64 @@ The standard packet size is 1500 bytes, the length of `systimestamp at local` is
 
 As the number of packets increases, the average time per row should be close to the ping time. 
 
-Here are the results of that test with 100 rows:
+Here are the results of that test with 10 rows:
 
 ```text
 $  echo exit | sql -S -L jkstill/XXX@orcl/pdb1 @ping-remote-db-multirow.sql
-Local Seconds Begin:    1641484445.954942
-     Remote Seconds:
-  Local Seconds End:    1641484445.954942
-         Round Trip:             0.000013
-==============================
-Local Seconds Begin:    1641484445.982099
-     Remote Seconds:
-  Local Seconds End:    1641484445.982099
-         Round Trip:             0.000012
-==============================
 
-...
+Local Seconds Begin:    1641645258.069000
+  Local Seconds End:    1641645258.176678
+         Round Trip:             0.107678
+==============================
+Local Seconds Begin:    1641645258.176710
+  Local Seconds End:    1641645258.267604
+         Round Trip:             0.090894
+==============================
+Local Seconds Begin:    1641645258.267632
+  Local Seconds End:    1641645258.340432
+         Round Trip:             0.072800
+==============================
+Local Seconds Begin:    1641645258.340464
+  Local Seconds End:    1641645258.666498
+         Round Trip:             0.326034
+==============================
+Local Seconds Begin:    1641645258.666535
+  Local Seconds End:    1641645259.416426
+         Round Trip:             0.749891
+==============================
+Local Seconds Begin:    1641645259.416462
+  Local Seconds End:    1641645259.460180
+         Round Trip:             0.043718
+==============================
+Local Seconds Begin:    1641645259.460209
+  Local Seconds End:    1641645259.569515
+         Round Trip:             0.109306
+==============================
+Local Seconds Begin:    1641645259.569545
+  Local Seconds End:    1641645259.891270
+         Round Trip:             0.321725
+==============================
+Local Seconds Begin:    1641645259.891300
+  Local Seconds End:    1641645260.038614
+         Round Trip:             0.147314
+==============================
+Local Seconds Begin:    1641645260.038652
+  Local Seconds End:    1641645260.253008
+         Round Trip:             0.214356
+==============================
+       Connect Time:             4.883269
+     Round Trip Avg:             0.227265
+         Iterations:     10
 
-==============================
-Local Seconds Begin:    1641484448.441338
-     Remote Seconds:
-  Local Seconds End:    1641484448.441338
-         Round Trip:             0.000021
-==============================
-     Round Trip Avg:             0.025115
 ```
 
 The average round trip per row is nearly the same as the times obtained via `ping`.
 
+The internet performance this day was not particularly good.  The latency vary quite a bit, and are quite slow.
+
+When there are complaints about slowness for a remote database, this test can help explain where the time is going.
+
+```text
+
+```
 
